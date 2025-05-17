@@ -1,7 +1,7 @@
 import { Outlet, Link } from 'react-router-dom';
 import './components.css';
 
-export const DisplayPost = () => {
+export const Layout = () => {
   return (
     <div className="container">
       <header className="header">

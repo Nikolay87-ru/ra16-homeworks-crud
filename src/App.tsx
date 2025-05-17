@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { DisplayPost } from './components/DisplayPost'
+import { Layout } from './components/Layout'
 import { MakePost } from './components/MakePost';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <DisplayPost /> }>
+        <Route path="/" element={ <Layout /> }>
           <Route index element={ <MakePost /> } />
           {/* <Route path="" element={} />
           <Route path="" element={} />

@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout'
-import { MakePost } from './components/MakePost';
+import { createRoot } from 'react-dom/client';
 
-function App() {
+import { Layout } from './components/Layout';
+import { MakePost } from './components/MakePost';
+import './index.css';
+
+export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <Layout /> }>
-          <Route index element={ <MakePost /> } />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MakePost />} />
           {/* <Route path="" element={} />
           <Route path="" element={} />
           <Route path="" element={} /> */}
@@ -17,4 +20,8 @@ function App() {
   );
 }
 
-export default App;
+const root = document.getElementById('root');
+if (root) {
+  createRoot(root).render(<App />);
+}
+

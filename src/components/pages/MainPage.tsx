@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { PostCard } from '../components/PostCard';
+import { PostCard } from './PostCard';
 import { usePosts } from '../hooks/usePosts';
 
-export const MakePost = () => {
+export const MainPage = () => {
   const { posts, loading, error } = usePosts();
 
   if (loading) return <div>Загрузка...</div>;

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { type Post } from '../types/Post';
+import { FaEye } from "react-icons/fa";
 import './components.css';
 
 interface PostCardProps {
@@ -26,8 +27,8 @@ export const PostCard = ({ post, onDelete }: PostCardProps) => {
             Удалить
           </button>
         ) : (
-          <Link to={`/posts/${post.id}`} className="view-btn">
-            Просмотр
+          <Link to={`/posts/${post.id}`} className="view-btn" title='Просмотр'>
+            <FaEye />
           </Link>
         )}
       </div>

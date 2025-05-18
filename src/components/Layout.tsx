@@ -6,7 +6,7 @@ export const Layout = () => {
     <div className="container">
       <header className="header">
         <Link to="/" className="logo">
-          Posts CRUD
+          Сообщения пользователя
         </Link>
       </header>
       <main className="main">

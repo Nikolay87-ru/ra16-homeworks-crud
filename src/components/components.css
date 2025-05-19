@@ -69,6 +69,17 @@
   gap: 20px;
 }
 
+.back-btn {
+  color: #007bff;
+  font-size: 1.8rem;
+  transition: color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: #0056b3;
+  }
+}
+
 .view-btn {
   color: #007bff;
   font-size: 1.8rem;

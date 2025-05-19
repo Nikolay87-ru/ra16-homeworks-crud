@@ -8,6 +8,10 @@ export const PostView = () => {
   const navigate = useNavigate();
   const { post, loading, error } = usePost(Number(id));
 
+  const handleBack = () => {
+    navigate(`/`);
+  };
+
   const handleEdit = () => {
     navigate(`/posts/${id}/edit`);
   };
@@ -23,7 +27,7 @@ export const PostView = () => {
 
   return (
     <div>
-      <PostCard post={post} onEdit={handleEdit} onDelete={handleDelete} />
+      <PostCard post={post} onBack={handleBack} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 };

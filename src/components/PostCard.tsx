@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom';
 import { type Post } from '../types/Post';
 import { FaEye } from 'react-icons/fa';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { TiArrowBack } from 'react-icons/ti';
 import './components.css';
 
 interface PostCardProps {
   post: Post;
+  onBack?: () => void;
   onDelete?: (id: number) => void;
   onEdit?: (id: number) => void;
 }
 
-export const PostCard = ({ post, onDelete, onEdit }: PostCardProps) => {
+export const PostCard = ({ post, onBack, onDelete, onEdit }: PostCardProps) => {
   const created = new Date(post.created).toLocaleString();
 
   return (
@@ -24,12 +26,17 @@ export const PostCard = ({ post, onDelete, onEdit }: PostCardProps) => {
       </div>
       <div className="card-content">{post.content}</div>
       <div className="card-actions">
-        {onEdit && <AiFillEdit className="edit-btn" title='Редактировать' onClick={() => onEdit(post.id)} />}
-        {onDelete && <AiFillDelete className="delete-btn" title='Удалить' onClick={() => onDelete(post.id)} />}
+        {onBack && <TiArrowBack className="back-btn" title="Назад" onClick={() => onBack()} />}
+        {onEdit && (
+          <AiFillEdit className="edit-btn" title="Редактировать" onClick={() => onEdit(post.id)} />
+        )}
+        {onDelete && (
+          <AiFillDelete className="delete-btn" title="Удалить" onClick={() => onDelete(post.id)} />
+        )}
 
         {!onDelete && (
-          <Link to={`/posts/${post.id}`} className="view-btn" title='Просмотр'>
-            <FaEye /> 
+          <Link to={`/posts/${post.id}`} className="view-btn" title="Просмотр">
+            <FaEye />
           </Link>
         )}
       </div>

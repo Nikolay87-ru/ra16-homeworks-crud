@@ -1,54 +1,112 @@
-# React + TypeScript + Vite
+# Домашнее задание: "Работа с формами - CRUD"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Главная страница](/src/assets/img-1.png)
 
-Currently, two official plugins are available:
+## Технологический стек
+- **Vite** + **React** + **TypeScript** (базовый стек)
+- **React Router DOM v7.6** (навигация)
+- **ESLint** + **Prettier** (линтинг и форматирование)
+- **React Icons** (иконки для интерфейса)
+- **Axios** (HTTP-запросы к API)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Выполненные задачи
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Настройка проекта
+- [x] Инициализация проекта на Vite (v6.3) + React (v19.1) + TypeScript (v5.8)
+- [x] Настройка React Router (v7.6) для навигации
+- [x] Подключение React Icons (v5.5) для кнопок управления
+- [x] Настройка ESLint (v9.26) и Prettier (v3.5)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 2. Реализация компонентов
+
+#### Компонент `PostForm`
+
+- [x] Приём колбэка через пропсы:
+  - `onSubmit` (сохранение поста)
+  - `onCancel` (отмена редактирования)
+- [x] Управляемое текстовое поле:
+  - Автофокус при открытии
+  - Динамический плейсхолдер
+  - Валидация на пустое содержимое
+- [x] Поддержка режимов:
+  - Создание нового поста
+  - Редактирование существующего
+
+#### Компонент `PostCard`
+
+- [x] Отображение данных поста:
+    - Аватар пользователя
+    - Имя пользователя
+    - Дата создания
+    - Содержимое поста
+- [x] Интерактивные кнопки:
+    - Просмотр (`FaEye`)
+    - Редактирование (`AiFillEdit`)
+    - Удаление (`AiFillDelete`)
+    - Вернуться назад (`TiArrowBack`)
+- [x] Адаптивный дизайн карточки
+
+#### Компонент `Layout`
+- [x] Общий макет приложения
+- [x] Заголовок с логотипом и навигацией
+- [x] Контейнер для контента страниц
+
+### 3. Страницы приложения
+
+#### Главная страница (`MainPage`)
+- [x] Отображение списка постов
+- [x] Кнопка создания нового поста
+- [x] Индикатор загрузки с анимацией
+
+#### Страница просмотра поста (`PostView`)
+- [x] Полноценное отображение поста
+
+- [x] Кнопки управления:
+    - Редактировать
+    - Удалить
+    - Назад
+
+#### Страница редактирования (`PostEdit`)
+- [x] Форма редактирования с предзаполненными данными
+- [x] Поддержка режимов:
+    - Создание нового поста
+    - Редактирование существующего
+
+### 4. Логика приложения
+- [x] Кастомные хуки:
+    - `usePosts` (работа со списком постов)
+    - `usePost` (работа с отдельным постом)
+
+- [x] Сервис `PostService` для работы с API:
+    - Получение всех постов
+    - Получение поста по ID
+    - Создание поста
+    - Обновление поста
+    - Удаление поста
+
+### 5. Типы данных
+- [x] Строгая типизация:
+  - `Post` (id, content, created)
+  - Пропсы для всех компонентов
+- [x] Валидация данных от API
+
+## Инструкция по запуску
+
+1. **Запуск сервера**(Указываем папку с сервером, затем запускаем):
+```bash
+cd server 
+npm start
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. **Запуск клиентской части**(Открыв новый терминал):
+```bash
+npm run dev
+```
+3. **Сборка проекта**:
+```bash
+npm run build
+```
+4. **Просмотр собранной версии**(адрес: http://localhost:5173):
+```bash
+npm run preview
 ```

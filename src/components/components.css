@@ -66,12 +66,12 @@
 .card-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 20px;
 }
 
 .view-btn {
   color: #007bff;
-  font-size: 28px;
+  font-size: 1.8rem;
   transition: color 0.2s;
   cursor: pointer;
 
@@ -81,7 +81,7 @@
 }
 
 .edit-btn {
-  font-size: 28px;
+  font-size: 1.8rem;
   color: #007bff;
   cursor: pointer;
   transition: color 0.2s;
@@ -93,7 +93,7 @@
 
 .delete-btn {
   color: #dc3545;
-  font-size: 28px;
+  font-size: 1.8rem;
   cursor: pointer;
   transition: color 0.2s;
 
@@ -133,6 +133,7 @@
 textarea {
   width: 100%;
   min-height: 150px;
+  max-height: 400px;
   margin: 15px 0;
   border: 1px solid #ddd;
   border-radius: 4px;

@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import './components.css';
 
@@ -17,6 +17,10 @@ export const PostForm = ({
 }: Props) => {
   const [content, setContent] = useState(postContent);
 
+  useEffect(() => {
+    setContent(postContent);
+  }, [postContent]);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (content.trim()) {
@@ -32,7 +36,7 @@ export const PostForm = ({
       <textarea
         value={content}
         onChange={e => setContent(e.target.value)}
-        placeholder=""
+        placeholder={content ? '' : "Введите текст сообщения..."}
         required
         autoFocus
       />

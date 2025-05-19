@@ -32,7 +32,7 @@ export const PostForm = ({
       <textarea
         value={content}
         onChange={e => setContent(e.target.value)}
-        placeholder="Введите текст сообщения..."
+        placeholder=""
         required
         autoFocus
       />

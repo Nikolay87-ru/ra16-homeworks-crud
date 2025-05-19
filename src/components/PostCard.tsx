@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
 import { type Post } from '../types/Post';
-import { FaEye } from "react-icons/fa";
+import { FaEye } from 'react-icons/fa';
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import './components.css';
 
 interface PostCardProps {
   post: Post;
   onDelete?: (id: number) => void;
+  onEdit?: (id: number) => void;
 }
 
-export const PostCard = ({ post, onDelete }: PostCardProps) => {
+export const PostCard = ({ post, onDelete, onEdit }: PostCardProps) => {
   const created = new Date(post.created).toLocaleString();
 
   return (
@@ -22,13 +24,12 @@ export const PostCard = ({ post, onDelete }: PostCardProps) => {
       </div>
       <div className="card-content">{post.content}</div>
       <div className="card-actions">
-        {onDelete ? (
-          <button className="delete-btn" onClick={() => onDelete(post.id)}>
-            Удалить
-          </button>
-        ) : (
+        {onEdit && <AiFillEdit className="edit-btn" title='Редактировать' onClick={() => onEdit(post.id)} />}
+        {onDelete && <AiFillDelete className="delete-btn" title='Удалить' onClick={() => onDelete(post.id)} />}
+
+        {!onDelete && (
           <Link to={`/posts/${post.id}`} className="view-btn" title='Просмотр'>
-            <FaEye />
+            <FaEye /> 
           </Link>
         )}
       </div>

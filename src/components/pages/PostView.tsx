@@ -2,12 +2,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { PostCard } from '../PostCard';
 import { usePost } from '../../hooks/usePost';
 import { PostService } from '../../api/posts';
-import { FaEdit } from "react-icons/fa";
 
 export const PostView = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { post, loading, error } = usePost(Number(id));
+
+  const handleEdit = () => {
+    navigate(`/posts/${id}/edit`);
+  };
 
   const handleDelete = async () => {
     if (!id) return;
@@ -20,10 +23,7 @@ export const PostView = () => {
 
   return (
     <div>
-      <PostCard post={post} onDelete={handleDelete} />
-      <button onClick={() => navigate(`/posts/${id}/edit`)}>
-      <FaEdit />
-      </button>
+      <PostCard post={post} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 };

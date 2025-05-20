@@ -3,7 +3,7 @@ import { type Post } from '../types/Post';
 import { FaEye } from 'react-icons/fa';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { TiArrowBack } from 'react-icons/ti';
-import './components.css';
+import './pCard.css';
 
 interface PostCardProps {
   post: Post;

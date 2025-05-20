@@ -1,6 +1,6 @@
 import { type FormEvent, useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import './components.css';
+import './pForm.css';
 
 type Props = {
   postContent?: string;
